@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Diário Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-open"></i> Meu Diário Digital</h1>
+            <p class="subtitulo">Registre seus momentos, pensamentos e aventuras!</p>
+            <button id="btn-personalizar" class="btn-personalizar" title="Personalizar"><i class="fas fa-paint-brush"></i></button>
+        </header>
+        
+        <main>
+            <section class="entrada-nova">
+                <h2><i class="fas fa-pen"></i> Nova Aventura</h2>
+                <form id="form-diario">
+                    <div class="form-group">
+                        <label for="titulo"><i class="fas fa-heading"></i> Título da sua história</label>
+                        <input type="text" id="titulo" placeholder="Do que se trata essa aventura?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data"><i class="fas fa-calendar"></i> Quando aconteceu?</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="conteudo"><i class="fas fa-comment-dots"></i> Conte sua história</label>
+                        <textarea id="conteudo" rows="6" placeholder="Compartilhe seus pensamentos, ideias e experiências aqui..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="humor"><i class="fas fa-smile"></i> Como você estava se sentindo?</label>
+                        <select id="humor">
+                            <option value="feliz">😄 Feliz</option>
+                            <option value="neutro">😐 Neutro</option>
+                            <option value="triste">😢 Triste</option>
+                            <option value="ansioso">😰 Ansioso</option>
+                            <option value="inspirado">✨ Inspirado</option>
+                        </select>
+                    </div>
+                    <button type="submit"><i class="fas fa-save"></i> Salvar História</button>
+                </form>
+            </section>
+            
+            <section class="entradas">
+                <h2><i class="fas fa-book"></i> Minhas Histórias</h2>
+                <div class="filtros">
+                    <input type="text" id="pesquisa" placeholder="🔍 Buscar nas histórias...">
+                    <select id="filtro-humor">
+                        <option value="">Todos os humores</option>
+                        <option value="feliz">😄 Feliz</option>
+                        <option value="neutro">😐 Neutro</option>
+                        <option value="triste">😢 Triste</option>
+                        <option value="ansioso">😰 Ansioso</option>
+                        <option value="inspirado">✨ Inspirado</option>
+                    </select>
+                </div>
+                <div id="lista-entradas">
+                    <p class="dica-inicial">Suas histórias aparecerão aqui! Comece escrevendo uma nova aventura.</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Seu diário digital pessoal - Todos os dados ficam salvos apenas no seu navegador</p>
+        </footer>
+    </div>
+    
+    <!-- Painel de personalização -->
+    <div id="painel-personalizacao" class="painel-personalizacao">
+        <div class="painel-header">
+            <h3><i class="fas fa-palette"></i> Personalizar Diário</h3>
+            <button id="fechar-personalizacao" class="btn-fechar"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="opcoes-personalizacao">
+            <div class="grupo-opcoes">
+                <h4>Tema</h4>
+                <div class="opcoes-tema">
+                    <button class="tema-opcao" data-tema="padrao" style="background: linear-gradient(120deg, #e0f7fa, #f3e5f5);">Padrão</button>
+                    <button class="tema-opcao" data-tema="escuro" style="background: linear-gradient(120deg, #263238, #37474f);">Escuro</button>
+                    <button class="tema-opcao" data-tema="natureza" style="background: linear-gradient(120deg, #c8e6c9, #b3e5fc);">Natureza</button>
+                    <button class="tema-opcao" data-tema="sunset" style="background: linear-gradient(120deg, #ffccbc, #bbdefb);">Sunset</button>
+                    <button class="tema-opcao" data-tema="neon" style="background: linear-gradient(120deg, #212121, #424242); border: 2px solid #00e676;">Neon</button>
+                    <button class="tema-opcao" data-tema="candy" style="background: linear-gradient(120deg, #ffcdd2, #f8bbd0);">Candy</button>
+                </div>
+            </div>
+            
+            <div class="grupo-opcoes">
+                <h4>Cor Principal</h4>
+                <div class="opcoes-cor">
+                    <button class="cor-opcao" data-cor="#9c27b0" style="background-color: #9c27b0;"></button>
+                    <button class="cor-opcao" data-cor="#2196f3" style="background-color: #2196f3;"></button>
+                    <button class="cor-opcao" data-cor="#4caf50" style="background-color: #4caf50;"></button>
+                    <button class="cor-opcao" data-cor="#ff5722" style="background-color: #ff5722;"></button>
+                    <button class="cor-opcao" data-cor="#607d8b" style="background-color: #607d8b;"></button>
+                    <button class="cor-opcao" data-cor="#e91e63" style="background-color: #e91e63;"></button>
+                    <button class="cor-opcao" data-cor="#009688" style="background-color: #009688;"></button>
+                    <button class="cor-opcao" data-cor="#ff9800" style="background-color: #ff9800;"></button>
+                    <button class="cor-opcao" data-cor="#795548" style="background-color: #795548;"></button>
+                    <button class="cor-opcao" data-cor="#673ab7" style="background-color: #673ab7;"></button>
+                </div>
+            </div>
+            
+            <div class="grupo-opcoes">
+                <h4>Fonte</h4>
+                <select id="opcao-fonte" class="opcao-select">
+                    <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI (Padrão)</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                    <option value="'Comic Sans MS', cursive">Comic Sans</option>
+                </select>
+            </div>
+            
+            <div class="grupo-opcoes">
+                <h4>Estilo das Entradas</h4>
+                <select id="opcao-estilo" class="opcao-select">
+                    <option value="padrao">Padrão</option>
+                    <option value="arredondado">Bem Arredondado</option>
+                    <option value="minimalista">Minimalista</option>
+                    <option value="vintage">Vintage</option>
+                </select>
+            </div>
+            
+            <button id="salvar-personalizacao" class="btn-salvar-personalizacao"><i class="fas fa-save"></i> Salvar Personalização</button>
+            <button id="resetar-personalizacao" class="btn-resetar-personalizacao"><i class="fas fa-undo"></i> Restaurar Padrão</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
